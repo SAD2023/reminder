@@ -4,8 +4,32 @@ html
     head
       meta(charset="UTF-8")
       meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", crossorigin="anonymous")
       link(rel='stylesheet', href='/stylesheets/index.css')
      
       title Reminder App     
     body
-      h1 Reminder App
+      h1.top-title Reminder App
+
+      div.reminders-box 
+        div.wrapper 
+
+          h3.form-header Add a new reminder:
+
+          form(action="")
+            label(for="name") 
+            input(class="form-control inp" id="name" name="name")
+            br
+
+            button(type="submit" class="btn btn-primary" id="submission") Enter
+
+        div(class="current-list justify-content-center" id="current-div")
+          h3 Current Reminders:
+          
+        br
+        button(type="submit" class="btn btn-primary" id="clear") Clear Selected Reminders
+
+
+    
+    script(src="/javascripts/indexPage.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
