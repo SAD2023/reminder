@@ -4,9 +4,18 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
-
+var schedule = require('node-schedule');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var nodemailer = require('nodemailer');
+//var twilio = require('twilio');
+var text = require('textbelt');
+
+
+var TelegramBot = require('node-telegram-bot-api');
+var token = '1795172111:AAH1ToSIlI3fS3jKlO6sl8FybGea5oXL4DE';
+var chatId = 1589641113;
+const bot = new TelegramBot(token, { polling: true });
 
 const MongoClient = require('mongodb').MongoClient;
 
@@ -37,6 +46,9 @@ app.use('/users', usersRouter);
 
 
 app.post('/', function (req, res) {
+  //const job = schedule.scheduleJob(date, function () {
+  //console.log('The world is going to end today.');
+  //});
   if (req.body.remove) {
     const uri = "mongodb+srv://sadman:manhattan1969@remindercluster.pslvo.mongodb.net/reminders?retryWrites=true&w=majority";
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -58,6 +70,45 @@ app.post('/', function (req, res) {
       const c = DB.collection("rems")
       c.insertOne(req.body);
 
+      var year = parseInt(req.body.date.slice(0, 4));
+      var month = parseInt(req.body.date.slice(5, 7)) - 1;
+      var day = parseInt(req.body.date.slice(8, 11));
+      var d2 = new Date(year, month, day, 22, 18, 0);
+      const job = schedule.scheduleJob(d2, function () {
+        //console.log('The world is going to end today.');
+        var transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: 'testforsadman@gmail.com',
+            pass: 'Testing12345'
+          }
+        });
+
+        var mailOptions = {
+          from: 'testforsadman@gmail.com',
+          to: 'skc86@cornell.edu',
+          subject: 'Reminder for ' + d2.toDateString(),
+          text: 'Hi myself! You have task | ' + req.body.name + " | due today!"
+        };
+
+        transporter.sendMail(mailOptions, function (error, info) {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+          }
+        });
+
+        //
+        bot.sendMessage(chatId, 'Hiya! You have task | ' + req.body.name + " | due soon! Good luck ^_^");
+
+      });
+      //const date = new Date();
+      //console.log(date);
+      //console.log(date.getDate());
+      //console.log(date.getMonth());
+      //console.log(date.getFullYear());
+      //console.log(req.body.date);
       async () => {
         const collection = DB.collection("rems"); // do this INSIDE async function
 

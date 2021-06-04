@@ -4,9 +4,32 @@ html{
   max-height:100vh;
 }
 
+h3 {
+  font-family: 'Mate SC', serif;
+}
+
+label {
+  font-family: 'Mate SC', serif;
+}
+
+body {
+  background-image: url("https://99designs-blog.imgix.net/blog/wp-content/uploads/2020/04/attachment_116486210-e1586178471519.jpeg?auto=format&q=60&fit=max&w=930")
+}
 h1.top-title {
   text-align: center;
+  color: white;
   border: 1px solid black;
+  background: rgba(22, 13, 13, 0.856);
+  padding-bottom: 5px;
+  font-family: 'Great Vibes', cursive;
+}
+
+input{
+  font-family: 'Mate SC', serif;
+}
+
+button {
+  font-family: 'Mate SC', serif;
 }
 
 .reminders-box{
@@ -14,8 +37,9 @@ h1.top-title {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  height: 50%;
   padding: 10px;
+  background: rgb(245, 191, 191);
+  border-radius: 5px;
 }
 
 .wrapper {
@@ -26,7 +50,7 @@ h1.top-title {
   margin-right: 5px;
 }
 @media only screen and (max-width: 1400px) {
-  .reminders-box{
-    height: 60%;
-  }
+ h1.top-title {
+   margin-bottom: 30px;
+ } 
 }

@@ -12,6 +12,12 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "mongodb": "^3.6.9",
-    "morgan": "~1.9.1"
+    "mongoose": "^5.12.12",
+    "morgan": "~1.9.1",
+    "node-schedule": "^2.0.0",
+    "node-telegram-bot-api": "^0.53.0",
+    "nodemailer": "^6.6.1",
+    "textbelt": "0.0.4",
+    "twilio": "^3.63.1"
   }
 }
