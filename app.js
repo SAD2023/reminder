@@ -13,8 +13,8 @@ var text = require('textbelt');
 
 
 var TelegramBot = require('node-telegram-bot-api');
-var token = '1795172111:AAH1ToSIlI3fS3jKlO6sl8FybGea5oXL4DE';
-var chatId = 1589641113;
+var token = 'MY TOKEN (not filled in for the public repository version)';
+var chatId = 0; // same thing as above
 const bot = new TelegramBot(token, { polling: true });
 
 const MongoClient = require('mongodb').MongoClient;
@@ -50,7 +50,7 @@ app.post('/', function (req, res) {
   //console.log('The world is going to end today.');
   //});
   if (req.body.remove) {
-    const uri = "mongodb+srv://sadman:manhattan1969@remindercluster.pslvo.mongodb.net/reminders?retryWrites=true&w=majority";
+    const uri = "mongodb+srv://sadman:password@remindercluster.pslvo.mongodb.net/reminders?retryWrites=true&w=majority";
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     client.connect(err => {
       const DB = client.db("reminders");
@@ -61,7 +61,7 @@ app.post('/', function (req, res) {
     });
   }
   else if (!req.body.form) {
-    const uri = "mongodb+srv://sadman:manhattan1969@remindercluster.pslvo.mongodb.net/reminders?retryWrites=true&w=majority";
+    const uri = "mongodb+srv://sadman:password@remindercluster.pslvo.mongodb.net/reminders?retryWrites=true&w=majority";
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     client.connect(err => {
       //const collection = client.db("reminders").collection("rems");
@@ -79,14 +79,14 @@ app.post('/', function (req, res) {
         var transporter = nodemailer.createTransport({
           service: 'gmail',
           auth: {
-            user: 'testforsadman@gmail.com',
-            pass: 'Testing12345'
+            user: 'SENDER-EMAIL@gmail.com', // I didn't include my actual information in this public repository
+            pass: 'PASSWORD'
           }
         });
 
         var mailOptions = {
-          from: 'testforsadman@gmail.com',
-          to: 'skc86@cornell.edu',
+          from: 'SENDER-EMAIL@gmail.com',
+          to: 'RECEIVER@gmail.com',
           subject: 'Reminder for ' + d2.toDateString(),
           text: 'Hi myself! You have task | ' + req.body.name + " | due today!"
         };
@@ -122,7 +122,7 @@ app.post('/', function (req, res) {
     var object = {
       list: []
     }
-    const uri = "mongodb+srv://sadman:manhattan1969@remindercluster.pslvo.mongodb.net/reminders?retryWrites=true&w=majority";
+    const uri = "mongodb+srv://sadman:password@remindercluster.pslvo.mongodb.net/reminders?retryWrites=true&w=majority";
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     client.connect(err => {
       const db = client.db("reminders");
