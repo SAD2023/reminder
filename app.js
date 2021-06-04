@@ -73,7 +73,7 @@ app.post('/', function (req, res) {
       var year = parseInt(req.body.date.slice(0, 4));
       var month = parseInt(req.body.date.slice(5, 7)) - 1;
       var day = parseInt(req.body.date.slice(8, 11));
-      var d2 = new Date(year, month, day, 22, 18, 0);
+      var d2 = new Date(year, month, day, 16, 0, 0);
       const job = schedule.scheduleJob(d2, function () {
         //console.log('The world is going to end today.');
         var transporter = nodemailer.createTransport({
