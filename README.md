@@ -18,11 +18,13 @@ Technologies used:
 - Bootstrap and google fonts for making it pretty!
 - Background image credit: “It’s my wall” by Fitriandhita (https://99designs.com/blog/web-digital/free-zoom-backgrounds/)
 
-Note: some of the fields have dummy values in them for this public repository. If you're interested in something similar for yourself, you could just clone the repo and fill in the fields with your information (you'd have to make a Mongo database and your own telegram app, but that shouldn't take too long).
+Note: some of the fields have dummy values in them for this public repository. If you're interested in something similar for yourself, you could just clone the repo and fill in the fields with your information (you'd have to make a Mongo database and your own telegram bot, but that shouldn't take too long).
 
 Pictures:
 
 ![image](https://user-images.githubusercontent.com/64035273/120855373-605fa780-c54c-11eb-8b6d-3480b8abf733.png)
+
+![image](https://user-images.githubusercontent.com/64035273/120856222-7f126e00-c54d-11eb-9272-27a426820747.png)
 
 
 
